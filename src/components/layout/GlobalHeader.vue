@@ -51,14 +51,12 @@ import { Logo2024 } from "@/assets/icons";
   color: $color-text-light
   margin-left: 10px
 
-// Tablet and up
 @media (min-width: 768px)
   .site-header
     padding: 20px 40px
   .site-logo-svg
     height: 36px
 
-// Desktop
 @media (min-width: 1024px)
   .site-logo-svg
     height: 50px

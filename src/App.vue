@@ -7,7 +7,6 @@
     </div>
     <div v-else-if="isAccessAllowed">
       <LandingPage />
-      <!--   <router-view /> -->
     </div>
     <div v-else class="access-denied-message">
       <p>We're sorry, but this content is not available in your region.</p>
@@ -30,7 +29,6 @@ const targetCountryCode = "DE";
 
 onMounted(async () => {
   try {
-    // Fetching only the countryCode for efficiency
     const response = await fetch(
       "http://ip-api.com/json/?fields=status,countryCode"
     );
@@ -57,16 +55,13 @@ onMounted(async () => {
         );
       }
     } else {
-      // API call was successful but didn't return a success status (e.g., private IP)
       console.warn(
         "Geolocation check failed or IP is private. Allowing access by default."
       );
-      isAccessAllowed.value = true; // Fallback: Allow access if geolocation fails
+      isAccessAllowed.value = true;
     }
   } catch (error) {
     console.error("Error fetching geolocation:", error);
-    // Fallback behavior: If the API call fails entirely, decide whether to allow or deny.
-    // Allowing access is often a safer default for user experience.
     isAccessAllowed.value = true;
     console.warn("Allowing access due to geolocation API error.");
   } finally {

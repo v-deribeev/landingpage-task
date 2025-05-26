@@ -1,80 +1,75 @@
 <template>
   <div class="landing-page">
     <section class="hero-section">
+      <MarketCandleBackground />
       <div class="hero-content">
-        <p class="hero-perks">EXCLUSIVE PARTNER PERKS</p>
+        <p class="hero-perks">{{ $t("landingPage.hero.perks") }}</p>
         <h1 class="hero-title">
-          EARN <span class="highlight-blue">20%</span><br />COMMISSION
+          {{ $t("landingPage.hero.titleMain") }}
+          <span class="highlight-blue">{{
+            $t("landingPage.hero.titleHighlight")
+          }}</span
+          ><br />{{ $t("landingPage.hero.titleCommission") }}
         </h1>
         <p class="hero-subtitle">
-          Don’t miss this limited-time promotion<br />designed exclusively for
-          AW Asia attendees.
+          {{ $t("landingPage.hero.subtitleLine1") }}<br />{{
+            $t("landingPage.hero.subtitleLine2")
+          }}
         </p>
-        <button class="hero-cta">GET STARTED NOW</button>
+        <button class="hero-cta">{{ $t("landingPage.hero.ctaButton") }}</button>
       </div>
     </section>
 
-    <section class="availability-banner">
-      <p>AVAILABLE UNTIL <span class="highlight-date">JANUARY 2025!</span></p>
-    </section>
+    <BaseBanner
+      class="bg-gradient-dark-accent"
+      :mainText="$t('landingPage.banner1.mainText')"
+      :highlightedText="$t('landingPage.banner1.highlightedText')"
+      highlightPosition="end"
+      highlightVariant="blue"
+    />
 
-    <section class="why-partner-section">
-      <h2>Why Partner with Hantec Trader?</h2>
-      <div class="benefits-grid">
-        <div
-          class="benefit-card"
-          v-for="(benefit, index) in benefits"
-          :key="index"
-        >
-          <component
-            :is="benefit.iconComponent"
-            class="benefit-icon-svg"
-            role="img"
-            aria-hidden="true"
-          />
-          <h3>
-            {{ benefit.titleLine1 }}<br /><span
-              class="benefit-second-title-line"
-              >{{ benefit.titleLine2 }}</span
-            >
-          </h3>
-          <p>{{ benefit.text }}</p>
-        </div>
-      </div>
-    </section>
+    <CardGrid :items="benefits" />
 
-    <footer class="bottom-banner">
+    <BaseBanner class="bg-dark-accent">
       <p>
-        INSTANT <span class="highlight-gold">GOLD</span> TIER UPGRADE! EARN
-        12.5% COMMISSION PER REFERRAL RIGHT FROM THE START.
+        {{ $t("landingPage.banner2.mainTextPart1") }}
+        <span class="text-gold font-bold">{{
+          $t("landingPage.banner2.highlightedText")
+        }}</span>
+        {{ $t("landingPage.banner2.mainTextPart2") }}
       </p>
-    </footer>
+    </BaseBanner>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { Logo2024, DiamondIcon, TrophyIcon, MoneyIcon } from "@/assets/icons";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { DiamondIcon, TrophyIcon, MoneyIcon } from "@/assets/icons";
+import CardGrid from "./CardGrid.vue";
+import BaseBanner from "./BaseBanner.vue";
+import MarketCandleBackground from "./MarketCandleBackground.vue";
 
-// If you were using the icons in the benefit cards:
-const benefits = ref([
+const { t } = useI18n();
+
+const benefits = computed(() => [
   {
-    iconComponent: MoneyIcon, // Store the component itself
-    titleLine1: "Automatic",
-    titleLine2: "Enrollment",
-    text: "Trades are executed by Hantec Markets, a global broker with 30 years of group experience.",
+    iconComponent: MoneyIcon,
+    titleLine1: t("landingPage.benefits.card1.titleLine1"),
+    titleLine2: t("landingPage.benefits.card1.titleLine2"),
+    text: t("landingPage.benefits.card1.text"),
   },
   {
     iconComponent: DiamondIcon,
-    titleLine1: "Point-Based",
-    titleLine2: "Rewards",
-    text: "Your trades are executed in live markets, and not in virtual or demo environments.",
+    titleLine1: t("landingPage.benefits.card2.titleLine1"),
+    titleLine2: t("landingPage.benefits.card2.titleLine2"),
+    text: t("landingPage.benefits.card2.text"),
   },
   {
     iconComponent: TrophyIcon,
-    titleLine1: "Multi-Level",
-    titleLine2: "Prizes",
-    text: "Customise your prop trading experience with our selection of Challenges and add-ons.",
+    titleLine1: t("landingPage.benefits.card3.titleLine1"),
+    titleLine2: t("landingPage.benefits.card3.titleLine2"),
+    text: t("landingPage.benefits.card3.text"),
   },
 ]);
 </script>

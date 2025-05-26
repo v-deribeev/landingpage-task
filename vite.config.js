@@ -38,6 +38,7 @@ export default defineConfig({
         additionalData: `
 @use "@/styles/_variables.sass" as *
 @use "@/styles/_mixins.sass" as *
+@use "@/styles/_inlineClasses.sass" as *
 `,
       },
     },

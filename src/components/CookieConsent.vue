@@ -7,8 +7,7 @@
       </p>
       <div class="consent-actions">
         <button @click="acceptCookies" class="accept-button">Accept</button>
-        <button @click="declineCookies" class="close-button">×</button>
-        <!-- Using a simple 'times' for close, can be an icon too -->
+        <button @click="declineCookies" class="close-button">X</button>
       </div>
     </div>
   </transition>
@@ -23,7 +22,6 @@ const showConsent = ref(false);
 onMounted(() => {
   const consentGiven = localStorage.getItem(COOKIE_CONSENT_KEY);
   if (!consentGiven) {
-    // Delay showing slightly so it doesn't jump in immediately on load
     setTimeout(() => {
       showConsent.value = true;
     }, 500);
@@ -31,10 +29,8 @@ onMounted(() => {
 });
 
 const setConsent = (status) => {
-  localStorage.setItem(COOKIE_CONSENT_KEY, status); // 'accepted' or 'declined'
+  localStorage.setItem(COOKIE_CONSENT_KEY, status);
   showConsent.value = false;
-  // Here you would typically initialize analytics or other cookie-dependent scripts
-  // if status === 'accepted'. For this example, we're just hiding the banner.
   console.log(`Cookie consent: ${status}`);
 };
 
@@ -43,12 +39,8 @@ const acceptCookies = () => {
 };
 
 const declineCookies = () => {
-  // In a real scenario, declining might mean disabling certain non-essential cookies.
-  // For this example, we'll just hide the banner as if they acknowledged it.
-  // Or, you could choose to not set a localStorage item and show it again next visit
-  // until they explicitly accept. For simplicity, we'll treat "close" as "declined for this session".
-  setConsent("declined_session");
-  showConsent.value = false; // Just hide for now
+  // setConsent("declined_session");
+  showConsent.value = false;
 };
 </script>
 
@@ -60,22 +52,22 @@ const declineCookies = () => {
   bottom: 0
   left: 0
   right: 0
-  background-color: rgba($color-dark-accent, 0.95) // Slightly transparent dark background
-  backdrop-filter: blur(5px) // Subtle blur for modern browsers
+  background-color: rgba($color-dark-accent, 0.95)
+  backdrop-filter: blur(5px)
   color: $color-text-light
   padding: 15px 25px
   display: flex
   justify-content: space-between
   align-items: center
-  z-index: 1000 // Ensure it's on top
+  z-index: 1000
   box-shadow: 0 -2px 10px rgba(0,0,0,0.2)
-  gap: 20px // Gap between text and buttons
+  gap: 20px
 
 .consent-text
   margin: 0
   font-size: 14px
   line-height: 1.5
-  flex-grow: 1 // Allow text to take available space
+  flex-grow: 1
 
 .consent-actions
   display: flex
@@ -99,15 +91,13 @@ button
       background-color: color.adjust($color-primary-blue, $lightness: -10%)
 
   &.close-button
-    font-size: 24px // Larger for the 'times' character
-    padding: 0px 8px // Adjust padding for the X
+    font-size: 24px
+    padding: 0px 8px
     line-height: 1
     color: $color-text-muted
     &:hover
       color: $color-text-light
 
-
-// Transition for the banner sliding up
 .cookie-slide-enter-active,
 .cookie-slide-leave-active
   transition: transform 0.5s ease-in-out
@@ -127,7 +117,7 @@ button
 
   .consent-actions
     width: 100%
-    justify-content: center // Center buttons on mobile
+    justify-content: center
     button.accept-button
-      flex-grow: 1 // Make accept button wider on mobile
+      flex-grow: 1
 </style>

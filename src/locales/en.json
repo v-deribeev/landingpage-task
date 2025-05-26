@@ -1,0 +1,39 @@
+{
+  "landingPage": {
+    "hero": {
+      "perks": "EXCLUSIVE PARTNER PERKS",
+      "titleMain": "EARN",
+      "titleHighlight": "20%",
+      "titleCommission": "COMMISSION",
+      "subtitleLine1": "Don’t miss this limited-time promotion",
+      "subtitleLine2": "designed exclusively for AW Asia attendees.",
+      "ctaButton": "GET STARTED NOW"
+    },
+    "banner1": {
+      "mainText": "AVAILABLE UNTIL ",
+      "highlightedText": "JANUARY 2025!"
+    },
+    "benefits": {
+      "card1": {
+        "titleLine1": "Automatic",
+        "titleLine2": "Enrollment",
+        "text": "Trades are executed by Hantec Markets, a global broker with 30 years of group experience."
+      },
+      "card2": {
+        "titleLine1": "Point-Based",
+        "titleLine2": "Rewards",
+        "text": "Your trades are executed in live markets, and not in virtual or demo environments."
+      },
+      "card3": {
+        "titleLine1": "Multi-Level",
+        "titleLine2": "Prizes",
+        "text": "Customise your prop trading experience with our selection of Challenges and add-ons."
+      }
+    },
+    "banner2": {
+      "mainTextPart1": "INSTANT ",
+      "highlightedText": "GOLD",
+      "mainTextPart2": " TIER UPGRADE! EARN 12.5% COMMISSION PER REFERRAL RIGHT FROM THE START."
+    }
+  }
+}

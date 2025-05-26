@@ -3,8 +3,8 @@
 @use '@/styles/_mixins.sass' as *
 
 .landing-page
-  background-color: $color-dark-bg // Fallback
-  overflow-x: hidden // Prevent horizontal scroll from glows
+  background-color: $color-dark-bg
+  overflow-x: hidden
 
 .hero-section
   min-height: 500px
@@ -82,74 +82,6 @@
     &:hover
       background-color: color.adjust($color-button-blue, $lightness: -10%)
 
-.availability-banner
-  background-image: linear-gradient(to right, $color-dark-accent, $color-dark-bg, $color-dark-accent)
-  color: $color-text-light
-  text-align: center
-  padding: 15px 20px
-  font-weight: 500
-  font-size: 12px
-  letter-spacing: 0.5px
-
-  .highlight-date
-    color: $color-primary-blue
-    font-weight: 700
-
-.why-partner-section
-  background-color: $color-text-light
-  padding: 60px 20px
-  text-align: center
-
-  h2
-    font-size: 24px
-    font-weight: 700
-    color: $color-text-dark
-    margin-bottom: 50px
-
-  .benefits-grid
-    display: grid
-    grid-template-columns: 1fr
-    gap: 30px
-    max-width: 1000px
-    margin: 0 auto
-
-  .benefit-card
-    +flex-center(column)
-
-    .benefit-icon
-      font-size: 36px
-      color: $color-primary-blue
-      margin-bottom: 15px
-
-    h3
-      font-size: 20px
-      font-weight: 600
-      color: $color-primary-blue
-      margin-bottom: 10px
-      line-height: 1.3
-
-    .benefit-second-title-line
-      color: $color-pure-black
-
-    p
-      font-size: 14px
-      color: $color-text-muted
-      line-height: 1.6
-      max-width: 280px
-
-.bottom-banner
-  background-color: $color-dark-accent
-  color: $color-text-light
-  text-align: center
-  padding: 20px
-  font-size: 12px
-  font-weight: 500
-  letter-spacing: 0.5px
-
-  .highlight-gold
-    color: $color-gold
-    font-weight: 700
-
 @media (min-width: 481px)
   .hero-title
     font-size: 42px
@@ -160,16 +92,6 @@
   .hero-cta
     padding: 12px 30px
     font-size: 16px
-  .why-partner-section
-    h2
-      font-size: 28px
-    .benefit-card
-      h3
-        font-size: 20px
-      p
-        font-size: 14px
-  .availability-banner, .bottom-banner
-    font-size: 14px
 
 @media (min-width: 1025px)
   .page-header
@@ -187,10 +109,3 @@
       font-size: 30px
     .hero-perks
       font-size: 21px
-
-  .why-partner-section
-    h2
-      font-size: 32px
-    .benefits-grid
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
-      gap: 40px
