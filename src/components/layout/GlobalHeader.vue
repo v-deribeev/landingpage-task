@@ -6,7 +6,7 @@
           <Logo2024
             class="site-logo-svg"
             role="img"
-            aria-label="Hantec Trader Logo"
+            :aria-label="$t('general.logoAlt')"
           />
         </a>
       </div>
@@ -25,7 +25,6 @@ import { Logo2024 } from "@/assets/icons";
   position: absolute
   top: 0
   left: 0
-  width: 100%
   z-index: 500
 
 .navigation-container
@@ -51,13 +50,13 @@ import { Logo2024 } from "@/assets/icons";
   color: $color-text-light
   margin-left: 10px
 
-@media (min-width: 768px)
+@media (min-width: $bp-tablet)
   .site-header
     padding: 20px 40px
   .site-logo-svg
     height: 36px
 
-@media (min-width: 1024px)
+@media (min-width: $bp-desktop)
   .site-logo-svg
     height: 50px
 </style>

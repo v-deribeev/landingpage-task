@@ -67,33 +67,15 @@
     margin-left: auto
     margin-right: auto
 
-  .hero-cta
-    background-color: $color-old-blue
-    color: $color-text-light
-    border: none
-    padding: 10px 20px
-    font-size: 14px
-    font-weight: 600
-    text-transform: uppercase
-    border-radius: 4px
-    cursor: pointer
-    transition: background-color 0.3s ease
-
-    &:hover
-      background-color: color.adjust($color-button-blue, $lightness: -10%)
-
-@media (min-width: 481px)
+@media (min-width: $bp-tablet)
   .hero-title
     font-size: 42px
   .hero-subtitle
     font-size: 16px
   .hero-perks
     font-size: 14px
-  .hero-cta
-    padding: 12px 30px
-    font-size: 16px
 
-@media (min-width: 1025px)
+@media (min-width: $bp-desktop)
   .page-header
     padding: 15px 20px
     .logo

@@ -72,7 +72,7 @@ p
   line-height: 1.6
   max-width: 280px
 
-@media (min-width: 1025px)
+@media (min-width: $bp-desktop)
   .benefit-card
     +flex-center(column)
 </style>

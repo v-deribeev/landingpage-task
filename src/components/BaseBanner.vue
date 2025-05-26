@@ -16,7 +16,6 @@
         </template>
         <template v-else>
           {{ mainText || highlightedText }}
-          <!-- Show mainText or highlightedText if no position specified -->
         </template>
       </p>
     </slot>
@@ -24,7 +23,7 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   mainText: {
@@ -88,7 +87,7 @@ const highlightVariant = computed(() => {
   .highlighted-text
     color: $color-gold
 
-@media (min-width: 481px)
+@media (min-width: $bp-tablet)
   .custom-banner
     font-size: 14px
 </style>

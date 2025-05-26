@@ -7,3 +7,15 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 # landingpage-task
 
 Straightforward landing page
+
+## Set up project
+
+Clone project - git clone ...
+Install dependencies - npm i
+start up project - npm run dev
+build project - npm run build
+
+###
+
+TO DO: Add ESLint for formatting and linting
+TO DO: Add Typography

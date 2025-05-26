@@ -4,19 +4,21 @@
       <MarketCandleBackground />
       <div class="hero-content">
         <p class="hero-perks">{{ $t("landingPage.hero.perks") }}</p>
-        <h1 class="hero-title">
+        <BaseHeading tag="h1" class="hero-title">
           {{ $t("landingPage.hero.titleMain") }}
           <span class="highlight-blue">{{
             $t("landingPage.hero.titleHighlight")
           }}</span
           ><br />{{ $t("landingPage.hero.titleCommission") }}
-        </h1>
+        </BaseHeading>
         <p class="hero-subtitle">
           {{ $t("landingPage.hero.subtitleLine1") }}<br />{{
             $t("landingPage.hero.subtitleLine2")
           }}
         </p>
-        <button class="hero-cta">{{ $t("landingPage.hero.ctaButton") }}</button>
+        <BaseButton variant="primary" class="custom-width">{{
+          $t("landingPage.hero.ctaButton")
+        }}</BaseButton>
       </div>
     </section>
 
@@ -49,6 +51,8 @@ import { DiamondIcon, TrophyIcon, MoneyIcon } from "@/assets/icons";
 import CardGrid from "./CardGrid.vue";
 import BaseBanner from "./BaseBanner.vue";
 import MarketCandleBackground from "./MarketCandleBackground.vue";
+import BaseButton from "./interface/BaseButton.vue";
+import BaseHeading from "./BaseHeading.vue";
 
 const { t } = useI18n();
 
@@ -76,4 +80,11 @@ const benefits = computed(() => [
 
 <style lang="sass" scoped>
 @use '@/styles/pages/landingPage.sass' as landing
+
+.custom-width
+  width: 200px
+  @media (min-width: $bp-tablet)
+    width: 240px
+  @media (min-width: $bp-desktop)
+    width: 310px
 </style>

@@ -35,5 +35,15 @@
       "highlightedText": "GOLD",
       "mainTextPart2": " TIER UPGRADE! EARN 12.5% COMMISSION PER REFERRAL RIGHT FROM THE START."
     }
+  },
+  "cookiePolicy": {
+    "consent": "We use cookies to enhance your browsing experience and analyze our traffic. By clicking \"Accept\", you consent to our use of cookies."
+  },
+  "general": {
+    "accept": "Accept",
+    "loading": "Loading...",
+    "skipContent": "Skip to main content",
+    "accessDenied": "We're sorry, but this content is not available in your region.",
+    "logoAlt": "Hantec Trader Logo"
   }
 }

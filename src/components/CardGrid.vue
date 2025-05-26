@@ -57,7 +57,7 @@ defineProps({
     margin: 0 auto
 
 
-@media (min-width: 1025px)
+@media (min-width: $bp-desktop)
   .card-grid-section
     h2
       font-size: 32px

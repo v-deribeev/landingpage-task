@@ -2,12 +2,13 @@
   <transition name="cookie-slide">
     <div v-if="showConsent" class="cookie-consent-banner">
       <p class="consent-text">
-        We use cookies to enhance your browsing experience and analyze our
-        traffic. By clicking "Accept", you consent to our use of cookies.
+        {{ $t("cookiePolicy.consent") }}
       </p>
       <div class="consent-actions">
-        <button @click="acceptCookies" class="accept-button">Accept</button>
-        <button @click="declineCookies" class="close-button">X</button>
+        <button @click="acceptCookies" class="accept-button">
+          {{ $t("general.accept") }}
+        </button>
+        <button @click="declineCookies" class="close-button">x</button>
       </div>
     </div>
   </transition>
@@ -116,7 +117,6 @@ button
     margin-bottom: 15px
 
   .consent-actions
-    width: 100%
     justify-content: center
     button.accept-button
       flex-grow: 1

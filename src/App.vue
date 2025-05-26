@@ -1,15 +1,15 @@
 <template>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">{{ $t("general.skipContent") }}</a>
   <main id="main-content">
     <GlobalHeader />
     <div v-if="isLoading" class="loading-screen">
-      <p>Loading...</p>
+      <p>{{ $t("general.loading") }}</p>
     </div>
     <div v-else-if="isAccessAllowed">
       <LandingPage />
     </div>
     <div v-else class="access-denied-message">
-      <p>We're sorry, but this content is not available in your region.</p>
+      <p>{{ $t("general.accessDenied") }}</p>
     </div>
   </main>
   <CookieConsent v-if="!isLoading" />
@@ -20,54 +20,14 @@
 import GlobalHeader from "./components/layout/GlobalHeader.vue";
 import LandingPage from "./components/LandingPage.vue";
 import CookieConsent from "./components/CookieConsent.vue";
-import { ref, onMounted } from "vue";
+import { useLocationAccess } from "./composables/useLocationAccess.js";
 
-const isLoading = ref(true);
-const isAccessAllowed = ref(false);
-// const targetCountryCode = "BG";
-const targetCountryCode = "DE";
+// const TARGET_COUNTRY_TO_BLOCK = "BG"; UNCOMMENT to block from BG
+const TARGET_COUNTRY_TO_BLOCK = "DE";
 
-onMounted(async () => {
-  try {
-    const response = await fetch(
-      "http://ip-api.com/json/?fields=status,countryCode"
-    );
-    if (!response.ok) {
-      throw new Error(
-        `Geolocation API request failed with status: ${response.status}`
-      );
-    }
-    const data = await response.json();
-
-    if (data.status === "success") {
-      if (
-        data.countryCode &&
-        data.countryCode.toUpperCase() === targetCountryCode
-      ) {
-        isAccessAllowed.value = false;
-        console.log(`Access denied: User is in ${data.countryCode}`);
-      } else {
-        isAccessAllowed.value = true;
-        console.log(
-          `Access granted: User is in ${
-            data.countryCode || "Unknown (country not BG)"
-          }`
-        );
-      }
-    } else {
-      console.warn(
-        "Geolocation check failed or IP is private. Allowing access by default."
-      );
-      isAccessAllowed.value = true;
-    }
-  } catch (error) {
-    console.error("Error fetching geolocation:", error);
-    isAccessAllowed.value = true;
-    console.warn("Allowing access due to geolocation API error.");
-  } finally {
-    isLoading.value = false;
-  }
-});
+const { isAccessAllowed, isLoading } = useLocationAccess(
+  TARGET_COUNTRY_TO_BLOCK
+);
 </script>
 
 <style lang="sass">
@@ -80,7 +40,7 @@ body
 #app-container
   min-height: 100vh
   display: flex
-  flex-direction: column // If needed for layout
+  flex-direction: column
 
 .loading-screen,
 .access-denied-message
