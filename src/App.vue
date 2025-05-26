@@ -22,7 +22,8 @@ import LandingPage from "./components/LandingPage.vue";
 import CookieConsent from "./components/CookieConsent.vue";
 import { useLocationAccess } from "./composables/useLocationAccess.js";
 
-// const TARGET_COUNTRY_TO_BLOCK = "BG"; UNCOMMENT to block from BG
+// UNCOMMENT to block from BG
+// const TARGET_COUNTRY_TO_BLOCK = "BG";
 const TARGET_COUNTRY_TO_BLOCK = "DE";
 
 const { isAccessAllowed, isLoading } = useLocationAccess(
