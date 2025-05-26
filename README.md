@@ -15,6 +15,10 @@ Install dependencies - npm i
 start up project - npm run dev
 build project - npm run build
 
+### Deployed at netlify
+
+hantec-markets.netlify.app
+
 ###
 
 TO DO: Add ESLint for formatting and linting
